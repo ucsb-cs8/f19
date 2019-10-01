@@ -102,7 +102,7 @@ Type in the `import math`, followed by `math.sqrt(2)`.  It should look like this
 
 Note that the `import` statement allows your program to use other code (libraries) that you didn't write yourself (someone else did). There are a lot of libraries that come with programming language (such as `math`), and some libraries that can be downloaded and imported into your program (see Section 1.2 in Perkovic). In either case, using libraries help developers focus on solving their problems and manage their code without having to re-implement certain functionality. 
 
-The value we get back is the square root of 2, which is an irrational number&mdash;its decimal representation goes on forever.  Unfortunately, real world computing devices typically store numbers with a finite number of decimal places&dagger;. So, the representation we see for the square root of two, $ \sqrt{2} $ is, in fact an approximation.
+The value we get back is the square root of 2, which is an irrational number&mdash;its decimal representation goes on forever.  Unfortunately, real world computing devices typically store numbers with a finite number of decimal places&dagger;. So, the representation we see for the square root of two, $$ \sqrt{2} $$ is, in fact an approximation.
 
 <div style="font-size:80%">
 (&dagger;&nbsp;Technically, "binary places", or "binary digits" rather than "decimal places". For purposes of this discussion it amounts to the same thing.  Also, some computer systems do work with "symbolic" representations of numeric quantities e.g retaining $$ \sqrt{2} $$ or $$\pi$$ as symbolic values rather than as numerical approximations. On those systems, you can exact results, without losing precision, at the expense of speed.  We won't discuss that kind of software in this course.)
@@ -159,7 +159,7 @@ and returns you to the Unix shell prompt.
 
 In the previous lab, you should already have created the 
 `~/cs8/lab00` You are now going to create folder
-`~/cs8/{{page.num}}` for the files for this lab.
+`~/cs8/lab01` for the files for this lab.
 
 In general, its probably a good idea to keep your work for this class
 under `~/cs8`, in folders called `lab00`, `lab01`, `lab02` etc.
@@ -184,12 +184,12 @@ As a reminder:
 * `ls` lists the files in your current directory
 
 With that information, you should be able to determine how to
-create a `~/cs8/{{page.num}}` directory, and make that directory your current
+create a `~/cs8/lab01` directory, and make that directory your current
 working directory (the one that comes up when you type `pwd`.)  Do that now.
 
 Then, you are ready for the next step.
 
-# Step 3: Create a file called `convert.py` in your `~/cs8/{{page.num}}` directory
+# Step 3: Create a file called `convert.py` in your `~/cs8/lab01` directory
 
 The contents of `convert.py` should be as shown below.  This contains
 two Python function definitions that, at the moment are incorrect.
@@ -235,7 +235,7 @@ So clearly, testing with a single value is not enough.  Indeed, if we test with 
 >>> 
 ```
 
-One of the problems with testing by hand is that it is tedious, and folks have a tendency to skip it.  So, experienced programmers have learned that its generally a better idea to automate the process of testing.     We'll learn how to do that next. We'll see that when we set up these four tests, two of them will pass, and two of them will fail.
+One of the problems with testing by hand is that it is tedious, and folks have a tendency to skip it.  So, experienced programmers have learned that its generally a better idea to automate the process of testing. We'll learn how to do that next. We'll see that when we set up these four tests, two of them will pass, and two of them will fail.
 
 # Step 5: Setting up automated tests
 
@@ -309,7 +309,7 @@ After entering this, save the file and use "Run Module" to make sure there are n
         
 Running the test cases requires us to go <em>outside of IDLE</em> back to the terminal shell prompt.  
 
-Your current directory needs to be the same one that your convert.py file is stored in. That should be `~/cs8/{{page.num}}`, but if it isn't, then fix things so that the `convert.py` file is in that directory, and you are in that directory. If you need help, ask for assistance.
+Your current directory needs to be the same one that your convert.py file is stored in. That should be `~/cs8/lab01`, but if it isn't, then fix things so that the `convert.py` file is in that directory, and you are in that directory. If you need help, ask for assistance.
 
 You should be able to type the `ls` command  (or on Windows, `dir`) at the terminal shell prompt and see the `convert.py` file listed:
 
