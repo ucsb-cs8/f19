@@ -54,4 +54,15 @@ iframe { width: 90%; height: 100px; overflow: scroll; }
 
 </table>
 
+<table style="width:90%">
+<tr>
+<td>
+  <img src="/f19/info/mentorPhotos/rachel_bio.jpeg"  width="300px"  alt="" style="float: left; margin: 0px 10px 20px 10px;">
+  <h3> (TA) </h3>
+    Preferred Pronouns: She, Her, Hers<br/>
+      <i> "Hi everyone! I’m Rachel, a fourth-year PhD student in Computer Science. Prior to this, I’ve been a TA for CS16 and for CS40. I hope that I can help make programming a pleasant experience and give you a positive first impression of it!" </i>
+  </td>
+</tr>
+
+</table>
 
