@@ -43,22 +43,12 @@ iframe { width: 90%; height: 100px; overflow: scroll; }
 <table style="width:90%">
 <tr>
 <td>
-  <img src="/f19/info/mentorPhotos/404.gif"  width="300px"  alt="" style="float: left; margin: 0px 10px 20px 10px;">
+  <img src="/f19/info/mentorPhotos/noahstier.gif"  width="300px"  alt="" style="float: left; margin: 0px 10px 20px 10px;">
   <h3> (TA) </h3>
-    Preferred Pronouns: <br/>
-    Major: <br/>
-    Previous experience as a TA: <br/>
-    <i> "" </i>
-  </td>
-</tr>
-<tr>
-  <td>
-  <img src="/f19/info/mentorPhotos/404.gif"  width="300px"  alt="" style="float: left; margin: 0px 10px 20px 10px;">
-  <h3>(Tutor)</h3>
-    Preferred Pronouns: <br/>
-    Major: <br/>
-    Previous experience as a tutor: <br/>
-  <i> ":)" </i>
+    Preferred Pronouns: He, Him, His<br/>
+    Major: Computational Biology <br/>
+    Previous experience as a TA: None! First time. <br/>
+      <i> "Hi! I'm a first year PhD student in CS, excited to be here and to help introduce you to the field. I first learned to program by writing web scrapers as an undergrad at UCLA, and then I got involved in a medical imaging lab that introduced me to research in CS. Since then I have worked as a software developer at a number of companies (including Procore in the SB area), and I have also worked as a researcher in the areas of machine learning and computer vision. Learning to write code is very rewarding and eye-opening, and I'm looking forward to sharing that experience with you." </i>
   </td>
 </tr>
 
