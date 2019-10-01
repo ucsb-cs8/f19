@@ -23,8 +23,7 @@ By the time you have completed this lab, you should be able to:
    
 This assignment is designed to make sure you are comfortable working in the 
 computing environment and know how to submit your work. It is mostly about
-mechanics, not concepts. As a result, this assignment is not particularly intellectually
-challenging. Future labs will require quite a bit more thought!
+mechanics, not concepts. Future labs will require quite a bit more thought!
 
 # Step by Step Instructions
 
@@ -43,11 +42,11 @@ If you ever forget the password to your ECI/CSIL account, you can reset it here:
 
 If your account doesn't work, ask a TA for assistance.
 
-Phelps 3525 is only available during your weekly scheduled discussion section and during Winter 2018, on Mondays 1-5pm, Thursdays 12-3pm, and Fridays 1-5pm.
+Phelps 3525 is only available during your weekly scheduled lab section and during open lab hours.
 
 At other times during the week, you can work in CSIL, the &quot;Computer Science Instructional Lab&quot;.
 
-The CSIL lab, by the way, is on the ground floor of Harold Frank Hall.  The glass front doors of Harold Frank Hall look out towards the ocean.  Stand just outside those doors with your back towards the ocean.   The doors to the CSIL lab are just on your right.  (If you can't look over your shoulder and see an great big tree, with the ocean just behind it, you are on the wrong side of the building.)   Hours vary--its open almost all the time during the regular school year
+The CSIL lab, by the way, is on the ground floor of Harold Frank Hall.  The glass front doors of Harold Frank Hall look out towards the ocean.  Stand just outside those doors with your back towards the ocean.   The doors to the CSIL lab are just on your right.  (If you can't look over your shoulder and see an great big tree, with the ocean just behind it, you are on the wrong side of the building.)   Hours vary--its open almost all the time during the regular school year.
 
 ## Step 2: Bring up a "terminal" 
  
@@ -124,7 +123,7 @@ your desktop&mdash;it should be near the upper left hand corner of the
 screen.  When you double click on this icon, it will bring up your
 home directory. You should see inside a folder called cs8. If you
 double click on that, you should see inside of it, a folder called
-{{page.num}}.
+lab00.
 
 Note that you could also use mouse clicks and menu options to create
 these folders, instead of the command line. If you have trouble with
@@ -192,7 +191,7 @@ Enter this program in IDLE, then save it under the name `hello.py`
 
 To run your program, select the "Run=>Run Module" option from the menu. You should see the "Hello World!" message.
 
-I'll demonstrate the use of Idle in lecture, since its much easier to just follow along than to try to explain everything in a text document. If you need a further demonstration, you can find one on YouTube. For example: 
+If you need a further demonstration of Idle, you can find one on YouTube. For example: 
 [This video starting at 4:53](https://www.youtube.com/watch?v=kXbpB5_ywDw&t=4m53s)  (That video is for Python 3.1, but the stuff shown in the video is the same across all versions of Python 3.x).
 
 ## Step 8: Uploading your program to Gradescope
@@ -201,9 +200,9 @@ Next, we'll try submitting our program to Gradescope, which is a new autograder 
 
 ### Creating your Gradescope account
 
-I have manually added everyone (using your @umail.ucsb.edu accounts) currently enrolled in the course to the Gradescope system. You should have received an email from the Gradescope system asking you to create a password. Once you follow the instructions to set your password, you should have access to the autograding system. You should see "CMPSC 8" in your Winter 2018 Courses.
+Everyone currently enrolled in the course has been manually added (using your @umail.ucsb.edu accounts) to the Gradescope system. You should have received an email from the Gradescope system asking you to create a password. Once you follow the instructions to set your password, you should have access to the autograding system. You should see "CS 8 (F19)" in your Fall 2019 Courses.
 
-The lab assignment "Lab00" should appear in your Gradescope dashboard in CMPSC 8. If you haven't submitted anything for this assignment yet, Gradescope will prompt you to upload your files. This prompt is shown below:
+The lab assignment "Lab00" should appear in your Gradescope dashboard in CS 8. If you haven't submitted anything for this assignment yet, Gradescope will prompt you to upload your files. This prompt is shown below:
 
 ![Gradescope upload](Gradescope_upload.png)
 
