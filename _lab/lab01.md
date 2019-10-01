@@ -177,7 +177,7 @@ As a reminder:
 * `cd` returns you to your home directory (e.g. `/cs/student/cgaucho/`)
 * `pwd` prints your current working directory
 * `cd cs8` changes into the cs8 directory under the current directory
-* `cd ~/cs8` changes into the cs8 directory under your home directory <em>regardless of the current working directory (because `~` is a shortcut for the absolute path of
+* `cd ~/cs8` changes into the cs8 directory under your home directory regardless of the current working directory (because `~` is a shortcut for the absolute path of
    your home directory.)
 * `cd ..` will move you up one directory from your current directory. 
 * `mkdir {{page.num}}` will create a {{page.num}} directory under your current working directory
