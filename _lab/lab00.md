@@ -54,6 +54,10 @@ On the Linux systems, there are a lot of things we can do with pointing and clic
 
 So, one of the first steps will often be to bring up a "Terminal" window&mdash;a window that gives us access to the Linux "command line".
 
+<!--
+apparently markdown="1" will work on Github Pages even though it doesn't
+work in the regular Github repo: https://stackoverflow.com/a/50974387
+-->
 <div style="float:right; width:100px; border: 1px solid #063;" markdown="1">
 ![terminal icon](lab00/Terminal.png)
 </div>
