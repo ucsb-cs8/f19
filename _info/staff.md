@@ -75,7 +75,8 @@ iframe { width: 90%; height: 100px; overflow: scroll; }
   </td>
 </tr>
 
-<tr>
+Previous experience as a TA: This is my first time being a TA. <br/>
+  <i> "Hello everyone! My name is Jianyu Xu and I'm a first year PhD student in CS. I'm looking forward to help all of you succeed in CS8 course and Python programming. I was major in engineering as an undergraduate, and hope to learn more on computer science with you together! Besides, I like combinatorics a lot, so do not hesitate if you find some math problem interesting!" </i><tr>
 <td>
   <img src="/f19/info/mentorPhotos/Kevin.png"  width="300px"  alt="" style="float: left; margin: 0px 10px 20px 10px;">
   <h3>Kevin H. (Tutor) </h3>
@@ -105,6 +106,17 @@ iframe { width: 90%; height: 100px; overflow: scroll; }
     Major: Computer Science <br/>
     Previous experience as a tutor: This is my first time tutoring CS8. <br/>
   <i> " I am a fourth year CS major student, and this will be my first time to be tutor. After three years learning Computer Science, I want to apply what I learned to practice and help students who may struggle to start. I will be available in the closed lab and open lab time. And I will also attend the class, so please feel free to come to me and ask questions. Looking forward to figuring problems out with you during this course, and I hope you all can enjoy yourselves in CS8! " </i>
+  </td>
+</tr>
+
+<tr>
+  <td>
+  <img src="/f19/info/mentorPhotos/jianyu.jpg"  width="300px"  alt="" style="float: left; margin: 0px 10px 20px 10px;">
+  <h3>Jianyu X.</h3>
+    Preferred Pronouns: He, Him, His <br/>
+    Major: Computer Science <br/>
+    Previous experience as a TA: This is my first time being a TA. <br/>
+  <i> "Hello everyone! My name is Jianyu Xu and I'm a first year PhD student in CS. I'm looking forward to help all of you succeed in CS8 course and Python programming. I was major in engineering as an undergraduate, and hope to learn more on computer science with you together! Besides, I like combinatorics a lot, so do not hesitate if you find some math problem interesting!" </i>
   </td>
 </tr>
 
