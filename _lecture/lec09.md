@@ -15,8 +15,8 @@ For example, instead of specifying that there are 26 letters in a string, use th
 A **`for` loop** is a *count*-controlled loop that repeats a specific number of times based on how many items are in a collection, such as a list, a tuple, or a range. As such, you don't need to tell it specifically when to end, because it ends by itself ~~when it feels like it~~ when it has gone through all of the items in the collection. Here's the rough format of a `for` loop:
 
 ```python
-for item in collection:
-    action
+for VARIABLE in COLLECTION:
+    STATEMENT(s)
 ```
 
 Compare this to a **`while` loop**, which is a *condition*-controlled loop that does require you to specify an end condition, such as when a counter reaches a certain value.
@@ -106,7 +106,7 @@ Of course, you don't need to include `0` at the beginning of `range()`, nor do y
 
 So if `i` is first equal to `0`, then the `for` loop is basically telling `print(s[i])` to `print(s[0])`, or to `print('H')`. Then, since there are no more statements within the loop, a new iteration begins, and `i` becomes `1`. Now, `print(s[i])` becomes `print(s[1])` becomes `print('a')` on a new line. And on it goes until `print(s[8])` becomes `print('n')` and the final character, `n`, is outputted onto the shell.
 
-## `range()` shenanigans
+## Bigger steps (or, more `range()` shenanigans)
 
 Now that you're (hopefully) more confident about `range()`, let's start messing around with the `start`, `stop`, and `end` values and changing their defaults. Perhaps it'll be easier for you if you actually represent `start`, `end`, and `step` as variables, like so:
 
@@ -129,6 +129,77 @@ w
 n
 ```
 
-## Printing a string backwards
+## Printing a string backwards (or, *even more* `range()` shenanigans)
 
-You're not out of the woods yet.
+You're not out of the woods yet. You've printed all of the characters in a string, and you've even printed some of the characters in a string based on a step value. But what if you wanted to print a string backwards?
+
+Well, here you go:
+
+```python
+s = "Halloween"
+
+start = -1
+end = -len(s) - 1
+step = -1
+
+for i in range(start, end, step):
+    print(s[i])
+```
+
+Remember those negative indices? Time to put them to use.
+
+| Argument | Value | But why? |
+| -------- | ----- | -------- |
+| `start` | `-1` | Printing a string backwards means beginning from the last character in the string, which in this case is `-1`. |
+| `end` | `-len(s) - 1` | Okay, okay. Start from `-1`, and count backwards by 1 until you hit the character `'H'` in the string `s = "Halloween"`. You should get `-9` (refer to the table of indices up above if you're confused). But remember that thing about automation? "Try not to hardcode values into your programs." So to get `-9` automatically, the function `len()` (which gets the length of a string) seems like a good place to start.<ul><li>`len(s)` returns a value of `8`, since there are 8 characters in string `s`.</li><li>`-len(s)` thus returns the negative value of `len(s)`, meaning `-8`.</li><li>`-len(s) - 1`, which subtracts `-1` from `-len(s)`, thusly returns `-9`, which is what we want.</li></ul>Notice that now, if we redefine string `s` to something like `s = "candy"`, `end` will automatically change to `-6` so that we don't have to change it ourselves. Hooray.|
+| `step` | `-1` | You counted backwards by 1 to get the `end` value. That's exactly the same thing as `step`! "Backwards by 1" is just an informal way of saying `-1`. In other words, `range()` increments, or steps, by `-1` per iteration. |
+
+All of this outputs:
+
+```
+n
+e
+e
+w
+o
+l
+l
+a
+H
+```
+
+# Side dishes
+
+You've done `for` loops, string indexing, string iteration, and lots of `range()`-related stuff. Time for some more advanced topics.
+
+## Handling index overflow
+
+String `s = "Halloween"` has positive indices of `0` to `8` and negative indices of `-1` to `-9`, so statements like `print(s[6])` and `print(s[-3])` work perfectly fine.
+
+But what happens if you choose an index that doesn't exist in this case, like `42` and `-1729`, and use them in statements like `print(s[42])` and `print(s[-1729])`? You run into an `IndexError` and your day is ruined.
+
+Well, not quite. What if there was some way you could "loop" an index back to one of the valid indices? Fortunately, there is a way.
+
+```python
+s = "Halloween"
+
+i = input("Enter an index: ")
+i = int(i)
+
+if i > len(s) - 1:
+    i %= len(s)
+elif i < -len(s):
+    i %= len(s)
+    
+print(s[i])
+```
+
+As usual, we first define a string `s = "Halloween"` with which to work with.
+
+Then, the program prompts the user to type in an index and stores that value in variable `i`. Let's assume the user types `42` as the input. Because `input()` normally gives values in the string data type, the program must convert `42` into an integer type so that mathematical operations on the value are possible. (You can also combine the first two lines into something like `i = int(input("Enter an index: "))` if you find that easier to understand.)
+
+Now comes the index checking part. The first `if` statement checks to see if the index exceeds the upper indexical bound of string `s`, which in this case is `8`. Again, in the interest of automation, `len(s) - 1` becomes `9 - 1` becomes `8` by itself without programmer interference, which is the ideal scenario.
+
+Since we earlier defined `i` to be equal to `42`, `i` is indeed greater than `len(s) - 1`. The `if` statement successfully proceeds to the next statement `i %= len(s)`, which is just a shorthand way of writing `i = i % len(s)`. Recall that the `%` symbol, or modulo, divides a number on the left side by the number on the right side and returns the remainder of the operation. In this case, `i = i % len(s)` becomes `i = 42 % 9` becomes `i = 6`.
+
+Because the `if` statement has been satisfied, the program skips the `elif` statement during execution and moves on to `print(s[i])`. Now that `i = 6` instead of `i = 42`, `print(s[i])` returns the character `e` instead of a scary `IndexError`.
