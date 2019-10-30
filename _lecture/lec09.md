@@ -4,7 +4,7 @@ On the menu today: fruity looped strings and indices, a dash of imported modules
 
 # Some words of wisdom
 
-Try not to hardcode values into your programs. Write code that can be reused in many different situations without modification. You can do this by keeping automation in mind.
+Try not to hard-code values into your programs. Write code that can be reused in many different situations without modification. You can do this by keeping automation in mind.
 
 For example, instead of specifying that there are 26 letters in a string, use the `len()` function to get that same number. That way, your program can quickly and easily adapt to different cases, such as a string with 33 letters.
 
@@ -150,8 +150,8 @@ Remember those negative indices? Time to put them to use.
 
 | Argument | Value | But why? |
 | -------- | ----- | -------- |
-| `start` | `-1` | Printing a string backwards means beginning from the last character in the string, which in this case is `-1`. |
-| `end` | `-len(s) - 1` | Okay, okay. Start from `-1`, and count backwards by 1 until you hit the character `'H'` in the string `s = "Halloween"`. You should get `-9` (refer to the table of indices up above if you're confused). But remember that thing about automation? "Try not to hardcode values into your programs." So to get `-9` automatically, the function `len()` (which gets the length of a string) seems like a good place to start.<ul><li>`len(s)` returns a value of `8`, since there are 8 characters in string `s`.</li><li>`-len(s)` thus returns the negative value of `len(s)`, meaning `-8`.</li><li>`-len(s) - 1`, which subtracts `-1` from `-len(s)`, thusly returns `-9`, which is what we want.</li></ul>Notice that now, if we redefine string `s` to something like `s = "candy"`, `end` will automatically change to `-6` so that we don't have to change it ourselves. Hooray.|
+| `start` | `-1` | Printing a string backwards means beginning from the last character in the string, which in this case is `-1`. You could also write `8`, but `8` is specific to string `s = "Halloween"`, and it would be a little tedious having to modify that value every time you wanted to use a new string. |
+| `end` | `-len(s) - 1` | Okay, okay. Start from `-1` as discussed in the previous row, and count backwards by 1 until you hit the character `'H'` in the string `s = "Halloween"`. You should get `-9` (refer to the table of indices up above if you're confused). But remember that thing about automation? "Try not to hard-code values into your programs." So to get `-9` automatically, the function `len()` (which gets the length of a string) seems like a good place to start.<ul><li>`len(s)` returns a value of `8`, since there are 8 characters in string `s`.</li><li>`-len(s)` thus returns the negative value of `len(s)`, meaning `-8`.</li><li>`-len(s) - 1`, which subtracts `-1` from `-len(s)`, thusly returns `-9`, which is what we want.</li></ul>Notice that now, if we redefine string `s` to something like `s = "candy"`, `end` will automatically change to `-6` so that we don't have to change it ourselves. Hooray.|
 | `step` | `-1` | You counted backwards by 1 to get the `end` value. That's exactly the same thing as `step`! "Backwards by 1" is just an informal way of saying `-1`. In other words, `range()` increments, or steps, by `-1` per iteration. |
 
 All of this outputs:
@@ -178,7 +178,7 @@ String `s = "Halloween"` has positive indices of `0` to `8` and negative indices
 
 But what happens if you choose an index that doesn't exist in this case, like `42` and `-1729`, and use them in statements like `print(s[42])` and `print(s[-1729])`? You run into an `IndexError` and your day is ruined.
 
-Well, not quite. What if there was some way you could "loop" an index back to one of the valid indices? Fortunately, there is a way.
+Well, not quite. What if there was some way you could "loop" an index back to one of the valid indices? You're in luck.
 
 ```python
 s = "Halloween"
@@ -196,10 +196,68 @@ print(s[i])
 
 As usual, we first define a string `s = "Halloween"` with which to work with.
 
-Then, the program prompts the user to type in an index and stores that value in variable `i`. Let's assume the user types `42` as the input. Because `input()` normally gives values in the string data type, the program must convert `42` into an integer type so that mathematical operations on the value are possible. (You can also combine the first two lines into something like `i = int(input("Enter an index: "))` if you find that easier to understand.)
+Then, the program prompts the user to type in an index and stores that value in variable `i`. Let's assume the user types `42` as the input. Because `input()` normally gives values in the string data type, the program must convert `42` into an integer type using `int()` so that mathematical operations on the value are possible. (You can also combine the first two lines into something like `i = int(input("Enter an index: "))` if you prefer.)
 
 Now comes the index checking part. The first `if` statement checks to see if the index exceeds the upper indexical bound of string `s`, which in this case is `8`. Again, in the interest of automation, `len(s) - 1` becomes `9 - 1` becomes `8` by itself without programmer interference, which is the ideal scenario.
 
 Since we earlier defined `i` to be equal to `42`, `i` is indeed greater than `len(s) - 1`. The `if` statement successfully proceeds to the next statement `i %= len(s)`, which is just a shorthand way of writing `i = i % len(s)`. Recall that the `%` symbol, or modulo, divides a number on the left side by the number on the right side and returns the remainder of the operation. In this case, `i = i % len(s)` becomes `i = 42 % 9` becomes `i = 6`.
 
-Because the `if` statement has been satisfied, the program skips the `elif` statement during execution and moves on to `print(s[i])`. Now that `i = 6` instead of `i = 42`, `print(s[i])` returns the character `e` instead of a scary `IndexError`.
+Because the `if` statement has been satisfied, the program skips the `elif` statement during execution and moves on to `print(s[i])`. Now that `i = 6` instead of `i = 42`, `print(s[i])` properly returns the character `e` instead of a scary `IndexError`.
+
+If you had a very big negative index (very small index?) like `-1729`, the `elif` statement runs instead of the `if` statement. Notice that the run condition for `elif` is different than the run condition for `if`: It's `-len(s)`, not `len(s) - 1`. That's because `elif` is checking to see if the index you entered exceeds the *lower*, not upper, indexical bound of string `s`, which is `-9` instead of `8`.
+
+Also, if you want, you can condense the `if` and `elif` statements into a single line, like so:
+
+```python
+if (i > len(s) - 1) or (i < -len(s)):
+    i %= len(s)
+```
+
+Parentheses aren't *technically* required here, as everything else in the `if` statement already has a higher precedence than the `or` keyword, but parentheses help improve readability in more complex lines of code and reduce the chance that you'll actually run into issues later down the line.
+
+## Accessing substrings and string slicing
+
+Let's, for a moment, step away from all of this `if` and `len()` craziness and focus specifically on chopping up and and sticking different parts of strings together. To do that, we'll need to once again use indices.
+
+Bring up your Python shell and type in a string:
+
+```
+>>> 'mississippi'
+```
+
+Just like in lists and tuples, you can access specific sets of characters, or substrings, within a string by using square brackets, numbers, and separating colons. The first number is where you start, the second number is where you end plus one, and the optional third number is how many numbers you count by. Sound familiar? Yep, it's pretty much just like `range()`!
+
+```
+>>> 'mississippi'[0:4]
+'miss'
+>>> 'mississippi'[0:4:2]
+'ms'
+```
+
+However, there are some differences between specifying substrings and specifying a `range()`.
+
+```
+>>> 'mississippi'[4] # Access character at index 4.
+'i'
+>>> 'mississippi'[:4] # Access characters from the beginning of the string (index 0) to index 3 (4 - 1 = 3).
+'miss'
+>>> 'mississippi'[4:] # Access characters from index 4 to the end of the string.
+'issippi'
+```
+
+You can assign a string to a variable and use the exact same syntax for accessing substrings.
+
+```
+>>> example = 'mississippi'
+>>> example[0:4]
+'miss'
+>>> example[4:]
+'issippi'
+```
+
+All of this work so far has been in service to **string slicing**, which is, well, slicing up a string into smaller pieces, or substrings. You can join these sliced fragments into larger pieces.
+
+```
+>>> 'mississippi'[:4] + 'mississippi'[4:]
+'mississippi'
+```
