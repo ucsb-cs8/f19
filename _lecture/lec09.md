@@ -64,7 +64,7 @@ Let's go through each of those arguments one by one.
 | `end` | The number you stop counting at, plus 1. For example, writing `3` means `range()` will only return up to `2` at the most, and writing `10` means `range()` will only return up to `9` at the most. (You must specify an end value. Otherwise, you'll get a nasty `TypeError`.) | no | N/A |
 | `step` | How many numbers you count by from the start value to the end value. Remember how, when you were younger, you used to count by 2's and 3's and 5's and whatnot? You might've even made a game out of it. 2, 4, 6, 8, 10, and so on until you got tired. Same thing in `range()`. | yes | `1` |
 
-# On to the main course
+# Messing around with strings (or, the main course)
 
 ## String indexing and iteration
 
@@ -150,7 +150,7 @@ Remember those negative indices? Time to put them to use.
 
 | Argument | Value | But why? |
 | -------- | ----- | -------- |
-| `start` | `-1` | Printing a string backwards means beginning from the last character in the string, which in this case is `-1`. You could also write `8`, but `8` is specific to string `s = "Halloween"`, and it would be a little tedious having to modify that value every time you wanted to use a new string. |
+| `start` | `-1` | Printing a string backwards means you start from the last character in the string, which in this case is `-1`. You could also write `8`, but `8` is specific to string `s = "Halloween"`, and it would be a little tedious having to modify that value every time you wanted to use a new string. |
 | `end` | `-len(s) - 1` | Okay, okay. Start from `-1` as discussed in the previous row, and count backwards by 1 until you hit the character `'H'` in the string `s = "Halloween"`. You should get `-9` (refer to the table of indices up above if you're confused). But remember that thing about automation? "Try not to hard-code values into your programs." So to get `-9` automatically, the function `len()` (which gets the length of a string) seems like a good place to start.<ul><li>`len(s)` returns a value of `8`, since there are 8 characters in string `s`.</li><li>`-len(s)` thus returns the negative value of `len(s)`, meaning `-8`.</li><li>`-len(s) - 1`, which subtracts `-1` from `-len(s)`, thusly returns `-9`, which is what we want.</li></ul>Notice that now, if we redefine string `s` to something like `s = "candy"`, `end` will automatically change to `-6` so that we don't have to change it ourselves. Hooray.|
 | `step` | `-1` | You counted backwards by 1 to get the `end` value. That's exactly the same thing as `step`! "Backwards by 1" is just an informal way of saying `-1`. In other words, `range()` increments, or steps, by `-1` per iteration. |
 
@@ -168,7 +168,7 @@ a
 H
 ```
 
-# Side dishes
+# Edge cases (or, the side dishes)
 
 You've done `for` loops, string indexing, string iteration, and lots of `range()`-related stuff. Time for some more advanced topics.
 
@@ -261,3 +261,140 @@ All of this work so far has been in service to **string slicing**, which is, wel
 >>> 'mississippi'[:4] + 'mississippi'[4:]
 'mississippi'
 ```
+
+# Useful modules (or, the condiments)
+
+## Generating an alphabet
+
+If you ever find yourself typing out `abcdefghijklmnopqrstuvwxyz` on your keyboard because
+
+1. you're bored (don't worry, everyone's done it at some point) and/or
+2. you need a string of characters for a cryptography assignment,
+
+simply import the **`string` module** and the **`ascii_lowercase` constant** at the top of your program file. Voilà! Now you don't have to worry about typos. **`ascii_uppercase`** is also available in case you want, well, uppercase letters.
+
+```python
+from string import ascii_lowercase
+from string import ascii_uppercase
+
+lowercase_letters = ascii_lowercase
+uppercase_letters = ascii_uppercase
+```
+
+Note that since `ascii_lowercase` and `ascii_uppercase` are *constants*, not functions, there aren't any parentheses that go at the end. You'd treat them like variables, except these "variables" are immutable.
+
+YOu also have the option of importing the entire `string` module and not just `ascii_lowercase` and `ascii_uppercase`. However, in order to access those two constants, you would have to prefix them with `string.` so that Python knows where you're getting these values from.
+
+```python
+import string
+
+lowercase_letters = string.ascii_lowercase
+uppercase_letters = string.ascii_uppercase
+```
+
+Whether you only import select functions or values from a module or import the entire module is up to you.
+
+## Generating random numbers
+
+Alright, alright, they're not *actually* random. They're pseudorandom. But we're not running a lottery or anything, so pseudorandomness is good enough for our purposes.
+
+To get (somewhat) random values in your program, import the **`randint()` function** from the **`random` module**. As described before, you can accomplish this in two ways:
+
+```python
+# Tactic 1
+from random import randint
+
+# Tactic 2
+import random
+```
+
+Assuming you employed the second tactic, here's how you would use the `randint` function:
+
+```python
+random.randint(start, end)
+```
+
+`start` establishes the lower bound of your random-ish number generation and `end` establishes the upper bound. Note that, unlike the range of numbers in `range()`, the range of numbers in `randint()` will go up to and *include* the final value. So if you had `random.randint(0, 1)`, it would be possible to get `1` as a result instead of just `0`.
+
+## Analyzing a string
+
+Oh look, more strings. This time you'll be taking functions from the **`str` class** (not to be confused with the `string` module from above). Since the `str` class is built into Python, you don't need to import anything this time around.
+
+Here are some `str` functions that might come in handy:
+
+* **`str.find(item)`** returns the index of the first occurrence of substring `item` in string `str`, or `-1` if `item` isn't found.
+* **`str.rfind(item)`** returns the index of the last occurrence of substring `item` in string `str`, or `-1` if `item` isn't found.
+* **`str.count(item)`** returns the number of times substring `item` appears in string `str`.
+
+When you're using these functions, replace `str` at the beginning of the function with the string or the name of the variable that you're searching in. For example, if you're trying to find the index that the character `'e'` appears in the string `"alphabet"`, you could do one of the following:
+
+```
+>>> "alphabet".find('e') # Directly look for a character in a string.
+6
+>>> word = "alphabet"
+>>> word.find('e') # Using a variable to look for a character in a string.
+6
+```
+
+# Cryptography (or, the dessert)
+
+You've sliced strings, you've combined them, you've printed them, you've `for`-looped them, you've `range()`d them, and you've indexed them. Now it's time to apply those skills to something practical.
+
+## Lots of vocabulary
+
+If you're sending a message to someone, you probably don't want someone else to snoop in and read what you've written. This is where cryptography comes in. **Cryptography** is the process of making communication secure so that your message is understood only by your intended recipients.
+
+**Encryption** is one of the ways that cryptography works, by converting **plaintext**, your original message, into **ciphertext**, a  (hopefully) secure and mostly unintelligible version of your original message. **Decryption** works the opposite way around, by converting ciphertext into plaintext so that your intended recipient(s) can read what you've written.
+
+In both cases, you'll need a **cipher**—an algorithm for performing encryption and decryption—with which to convert messages back and forth between plaintext and ciphertext. One type of cipher is a **substitution cipher**, where each character of your original message is mapped to another character in a scrambled but systematic **key**.
+
+```python
+original_message = "abcdefghijklmnopqrstuvwxyz"
+key = "zyxwvutsrqponmlkjihgfedcba"
+```
+
+Here, in the process of encryption, `'a'` would become `'z'`, `'b'` would become `'y'`, and so on and so forth. Note that `key` corresponds to each letter of `original_message`, so this cipher has a 1:1 mapping. However, this does not always have to be the case.
+
+```python
+original_message = "abcdefghijklmnopqrstuvwxyz"
+key = "zzzzzzzzzzzzzzzzzzzzzzzzzz"
+```
+
+Here, because key is just a string of 26 z's `original_message` would just be converted into, well, a string of z's.
+
+## Example program
+
+From class, here's an example of what a cryptography program could look like.
+
+```python
+from string import ascii_lowercase
+
+def generate_key():
+    # return "abcdefghijklmnopqrstuvwxyz "
+    return "opqrstuvwxyz abcdefghijklmn"
+
+# Given a message, encrypt it using the key.
+message = "hello, world!"
+encrypted = ""
+decrypted = ""
+
+# Generate an alphabet.
+alphabet = ascii_lowercase + " "
+print('"' + alphabet + '"')
+
+# Generate the key.
+key = generate_key()
+
+# Loop through every letter of message.
+# Find a letter from the key to replace it with.
+# Assign a new letter to an encrypted message.
+for letter in message:
+    index = alphabet.find(letter)
+    encrypted += key[index]
+print(encrypted)
+
+# Loop through every letter of encrypted.
+for letter in encrypted:
+    index = key.find(letter)
+    decrypted += alphabet[index]
+print(decrypted)
