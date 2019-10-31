@@ -8,6 +8,10 @@ Try not to hard-code values into your programs. Write code that can be reused in
 
 For example, instead of specifying that there are 26 letters in a string, use the `len()` function to get that same number. That way, your program can quickly and easily adapt to different cases, such as a string with 33 letters.
 
+Plus, when writing a program, it's always nice to start with pseudocode and work your way up to algorithms and then actual code. That way, you'll have an easier time keeping track of your main objective rather than getting bogged down by syntax.
+
+Oh, and run your code every few lines that you write. It's best to catch errors early on when they're not as much of a hassle to fix.
+
 # Now, a bit of review (or, the appetizers)
 
 ## (Froot) Loops
