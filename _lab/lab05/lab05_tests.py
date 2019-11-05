@@ -34,7 +34,7 @@ def test_createWordList_1():
 
 #...
 
-from lab07 import canWeMakeIt
+from lab05 import canWeMakeIt
 
 #### Write tests for canWeMakeIt ####
 
@@ -50,7 +50,7 @@ def test_canWeMakeIt_1():
 
 #### Write tests for getWordPoints ####
 
-from lab07 import getWordPoints
+from lab05 import getWordPoints
 letterPoints = {'a':1, 'b':3, 'c':3, 'd':2, 'e':1, 'f':4,\
                 'g':2, 'h':4, 'i':1, 'j':8, 'k':5, 'l':1,\
                 'm':3, 'n':1, 'o':1, 'p':3, 'q':10, 'r':1,\
