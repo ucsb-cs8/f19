@@ -3,7 +3,7 @@
 
 def createWordList(filename):
   '''
-  Reads in the in the filename and creates a list L which contains all the words. 
+  Reads in the filename and creates a list L which contains all the words. 
   You must remove the newline character ('\n') at the end of each word.  
 
   :param filename: the string which represents the filename you are reading from.
