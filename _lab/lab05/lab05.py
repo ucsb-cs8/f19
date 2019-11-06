@@ -1,4 +1,4 @@
-# Student(s): (insert name here) 
+# Student(s): (insert name here)
 # Make sure to read the comments for each function. 
 
 def createWordList(filename):
