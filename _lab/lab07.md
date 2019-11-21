@@ -43,7 +43,7 @@ Note that all words are separated by a whitespace character, and a word contains
 
 If you run `mostCommonWords("input1.txt", 1)`, this function should essentially return the mode value from the file (the word that occurs most often). To be able to return **the list** of most common words, you will need to count how many times each word occurred in a file. Implement `wordFrequency` to help you first count the words in a file, then `mostCommonWords()` can sort them by the frequencies and store `N` of them into the returned list.
 
-* Test your function by making sure your input file has something like "hello hello hello world" and that you are able to return "hello" as the most frequently occuring word. 
+* Test your function by making sure your input file has something like "hello hello hello world" and that you are able to return "hello" as the most frequently occuring word.
 * Test your function by making sure if your "input1.txt" has something like "hello hello hello world" and you call `mostCommonWords("input1.txt", 2)`, the function correctly returns `['hello', 'world']`.
 * Test your function by making sure if your "input2.txt" has something like "hello world world world" and you call `mostCommonWords("input2.txt", 2)`, the function correctly returns `['world', 'hello']`.
 * Test your function by making sure if your "input2.txt" has something like "hello world world world" and you call `mostCommonWords("input2.txt", 3)`, the function correctly prints `[Error] The "input2.txt" contains 2 unique words (you asked for 3).`. Check that it also returns `None`.
@@ -113,20 +113,20 @@ def charactersPerWord(filename):
 def wordFrequency(filename):
     '''
     (20 points)
-    Reads the file from filename in your function and returns a dictionary 
+    Reads the file from filename in your function and returns a dictionary
     with the frequency of each word as its value.
     - Words are separated by whitespace characters, but do not include
     the following punctuation characters (,.!?;). You can assume contractions
     count as one word (i.e. "don't", "you'll", etc. are one word).
     - The split and strip functions may be useful.
-    - You can assume contractions count as one word 
+    - You can assume contractions count as one word
     (i.e. "don't", "you'll", etc. are one word).
     - Your function should open the file for reading, and close
     the file before returning.
     '''
     return "stub"
-    
-    
+
+
 def mostCommonWords(filename, N):
     '''
     (20 points)
@@ -134,11 +134,22 @@ def mostCommonWords(filename, N):
     common words in the text file (i.e., N words with the highest frequency),
     sorted by the number of times they occured in the file (most common first).
     - Use wordFrequency() helper function to count the frequency of each word.
-    - Print "[Error] The "<filename>" contains <X> unique words (you asked for <N>)." 
-    and return None if N is larger than the number of words in the file (substitute 
+    - Print "[Error] The "<filename>" contains <X> unique words (you asked for <N>)."
+    and return None if N is larger than the number of words in the file (substitute
     "<filename>", <X>, <N> with the actual values).
     '''
     return "stub"
 
 ```
 
+# Extra practice
+
+1. Write a function `set_intersection(A, B)` that takes two lists of numbers A and B as inputs, and returns a list containing all numbers common to both input lists. If a number occurs n times in both lists, it should occur n times in the result. The order of the result should be the order of occurrence in the first input list. Examples: `set_intersection([1, 8, 2, 1], [4, 1, 8])` should return `[1, 8]`; `set_intersection([8, 1, 2, 1], [4, 1, 8, 1])` should return `[8, 1, 1]`.
+
+2. Write a function that concatenates two input files (reads them and combines them into one by putting one after the other) and writes the result to an output file: `concatenate(infile1, infile2, outfile)`.
+
+3. Write a function that takes a dict of filename-word pairs as input, splits each file at each occurrence of its associated word, and writes an output file for each split. `split_files({"animals.txt": "giraffe", "dinosaur.txt": "velociraptor"})` should read "animals.txt", split it up into n+1 chunks where the chunks are bounded by n occurrences of the word "giraffe" (no final chunk should contain the word "giraffe"), and write the chunks to output files "giraffe1.txt", ..., "giraffe\<n\>".txt. Then it should do the same for the dinosaur file. Note: you may want to start by writing a helper function.
+
+4. Write functions implementing the string methods `split`, `isnumeric`, `replace`, and `join`. For example, `replace("hello world", "l", "_")` should return "he__o world". In a Python interpreter, run `dir("")` to get a list of other string methods that might be good practice candidates.
+
+5. Write a function that "rotates" a dictionary of string-int pairs by a given shift value: return a dictionary where each value is assigned to the key that is `shift` keys away from its original key, where the ordering of keys is defined by alphabetical sorting. For example: `rotate_dict({"guitar": 4, "violin": 9, "banjo": -3, "cello": 0}, 2)` should return `{"guitar": -3, "violin": 0, "banjo": 9, "cello": 4}`.
