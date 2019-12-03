@@ -142,3 +142,43 @@ def mostCommonWords(filename, N):
 
 ```
 
+
+# Extra Credit Challenges
+
+(make sure you read all 3 sections including this one: Extra Credit Challenges, Extra Credit Tests, and Extra Credit Submission)
+
+Below are three extra credit challenges.
+- For each one, you need to implement a modified version of each of the lab07 functions (`totalWords`, `longestWord`, `charactersPerWord`, `wordFrequency`, and `mostCommonWords`).
+- Each of the three challenges involves pre-processing the input text in a new way.
+- Each modified function that you will implement must call the original version of the function after doing the specified pre-processing.
+- __The pre-processing is cumulative__: that means your solution to challenge 3 must perform the pre-processing required by challenge 3, in addition to the pre-processing required by challenges 1 and 2.
+
+The challenges are:
+1. Remove double-quotes from the file content
+2. Remove "stop words" using the provided [stopwords.txt](stopwords.txt).
+  * every line of stopwords.txt contains exactly one word, called a stop word (some of them are contractions, e.g. "you'd")
+	* Hint about how to remove all occurences of a word from a list of words: if you use the lists's `remove` method, it will only remove the first occurence of that word from the list. To address this you can use a while loop to keep removing a word as long as it is still found in the list. Alternatively, instead of removing the desired word from the list, you could create a new list and add to it all words except for the one you'd like to remove.
+3. Convert all letters to lower case
+  * In English, "Hi" and "hi" are the same word, even though in Python they are different strings. For this challenge, enforce that by pre-processing all words to lowercase. The result will be that "hi", "Hi", "HI", and "hI" will all be counted as the same word "hi". (Yes, "HI" is the state abbreviation for Hawaii so you could argue it actually is a different word. In this assignment do not worry about that, just treat them as the same word).
+
+__REMINDER--the pre-processing is cumulative__: that means your solution each challenge must perform the pre-processing required by that challenge, in addition to the pre-processing required by the previous challenge(s).
+
+# Extra Credit Tests
+
+For each challenge we are providing the tests below to help you get started. The autograder for this assignment will contain additional tests for cases that are not covered by the tests below, so you are advised to think about which test cases are missing and write them yourself.
+
+Initial tests for challenge 1:
+```python
+```
+
+Initial tests for challenge 2:
+```python
+```
+
+Initial tests for challenge 3:
+```python
+```
+
+# Extra Credit Submission
+
+For each challenge that you complete, you will sumbmit one file, called `lab07_challenge1.py`, `lab07_challenge2.py`, or `lab07_challenge3.py` for challenges 1, 2, and 3 respectively. Each file must contain a modified implementation of `totalWords`, `longestWord`, `charactersPerWord`, `wordFrequency`, and `mostCommonWords`. In order to reuse your original functions, we recommend copying them into your challenge files with new names, for example `longestWord_original`.
