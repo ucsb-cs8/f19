@@ -97,9 +97,55 @@ You can also call `id` using a variable name instead of the value object itself,
 
 # Mutable vs. immutable
 
-Strings are immutable, while lists are mutable.
+Strings are immutable. Practically, this means that you can't change a string, like replace a letter inside with another letter, unless you replace the string entirely.
 
-Because strings are immutable, they don't change no matter what you do to them short of replacing the string entirely.
+```
+>>> str = "hello"
+>>> str[0] = 'y' # spits out an error
+>>> str = "yello" # works fine
+```
+
+On the other hand, lists are mutable. Change them all you want, however you want.
+
+```
+>>> list = ['h', 'e', 'l', 'l', 'o']
+>>> list[0] = 'y' # works fine
+>>> list = ['y', 'e', 'l', 'l', 'o'] # works fine too
+```
+
+This should be old news to you by now. But now that you know more about the concept of objects, we can slightly revise our mutability definitions of strings and lists:
+* Strings are immutable, meaning that once a string value object has been created, it can't be changed. You'll need to create a completely new string object and reassign it to an existing variable if you want to get anything close to a modification.
+* Lists are mutable, meaning that once a list value object has been created, it can still be changed. You don't have to create a completely new list object if you want something diferent.
+
+Why is this important? Well, maybe it's because it'll be on a test at some point. (Cough cough.) Also, if you ever find yourself assigning a variable to a variable, the object that each variable references will depend on the mutability of said object.
+
+With strings, which are immutable:
+
+```python
+>>> x = "abc" # Create string object and assign it to variable x.
+>>> y = x # Assign variable x to variable y, or assign existing string object to variable y.
+>>> x += 'd' # Create new string object (doesn't modify existing string object).
+>>> x
+'abcd' # Variable x points to new string object.
+>>> y
+'abc' # Variable y still points to old string object.
+```
+
+With lists, which are mutable:
+
+```python
+>>> x = ['a', 'b', 'c'] # Create list object and assign it to variable x.
+>>> y = x # Assign variable x to variable y, or assign existing list object to variable y.
+>>> x.append('d') # Modify existing list object (opposite of string behavior).
+>>> x
+['a', 'b', 'c', 'd'] # Variable x still points to existing list object, which has just been updated to include a new string.
+>>> y
+['a', 'b', 'c', 'd'] # Variable y still points to existing list object, which has just been updated to include a new string.
+```
+
+## More complex examples
+
+With strings:
 
 ```python
 my_cat = "cat"
@@ -123,7 +169,7 @@ print("After the swap: ", my_cat, my_bat)
 print(pet)
 ```
 
-Because lists are mutable, be careful about changing them in functions and requiring the original version.
+With lists:
 
 ```python
 my_cat = "cat"
