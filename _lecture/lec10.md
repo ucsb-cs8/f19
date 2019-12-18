@@ -49,10 +49,10 @@ Wow. That was fast. Here's the logic behind the function, in plain English.
 2. Come up with a docstring that describes the purpose of the function.
 3. Create a `for` loop with loop variable `i` that iterates over a sequence of `range(num)`. `range(num)` means that if the values from this `range` call were to be stored in a list, you would get `[0, 1, 2, ... , num-2, num-1]`.
 4. Inside this `for` loop, come up with some conditional statements that do certain things if certain, well, conditions are met.
-** If `i` has a value of less than `3`, then print the current value of `i` to the terminal window.
-** If `i` has a value of anything other than less than `3`, then execute another batch of conditional statements.
-*** If `i` has a value of less than `5`, then skip back to the beginning of the for loop, increment the value of `i` by `1`, and go through the `for` loop anew.
-*** If `i` has a value of anything other than less than `5`, then `return` the current value of `i` and stop running the function.
+    * If `i` has a value of less than `3`, then print the current value of `i` to the terminal window.
+    * If `i` has a value of anything other than less than `3`, then execute another batch of conditional statements.
+        * If `i` has a value of less than `5`, then skip back to the beginning of the for loop, increment the value of `i` by `1`, and go through the `for` loop anew.
+        * If `i` has a value of anything other than less than `5`, then `return` the current value of `i` and stop running the function.
 
 # Crash course on binary
 
