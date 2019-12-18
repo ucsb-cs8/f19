@@ -52,9 +52,19 @@ Wow. That was fast. Here's the logic behind the function, in plain English.
     * If `i` has a value of less than `3`, then print the current value of `i` to the terminal window.
     * If `i` has a value of anything other than less than `3`, then execute another batch of conditional statements.
         * If `i` has a value of less than `5`, then skip back to the beginning of the for loop, increment the value of `i` by `1`, and go through the `for` loop anew.
-        * If `i` has a value of anything other than less than `5`, then `return` the current value of `i` and stop running the function.
+        * If `i` has a value of anything other than less than `5`, then return the current value of `i` and stop running the function.
 
 # Crash course on binary
+
+There will be times in your programming career where you'll have to wrangle **binary numbers** (think 0's and 1's) as opposed to the usual **decimal numbers** (think everything other than 0's and 1's). You'll have to understand how they work, how to convert between the two, how to add and subtract them, and all that fun stuff.
+
+But this is not one of those times.
+
+All you need to know right now is that binary numbers exist and that Python's built-in function `bin` takes an integer parameter and returns a string starting with `0b` and followed by the binary number. For example, `bin(9)` returns `'0b1001'`.
+
+But if you're *still* interested in learning more (such proactivity!), feel free to read these up on these two articles:
+* [Number Conversions](https://ucsb-cs8.github.io/topics/number_conversions/)
+* [Converting between binary and decimal](https://www.learncpp.com/cpp-tutorial/converting-between-binary-and-decimal/).
 
 # More cryptography
 
