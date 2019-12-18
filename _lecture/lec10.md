@@ -62,32 +62,42 @@ But this is not one of those times.
 
 All you need to know right now is that binary numbers exist and that Python's built-in function `bin` takes an integer parameter and returns a string starting with `0b` and followed by the binary number. For example, `bin(9)` returns `'0b1001'`.
 
-But if you're *still* interested in learning more (such proactivity!), feel free to read these up on these two articles:
+But if you're *still* interested in learning more (such proactivity!), feel free to read up on these two articles:
 * [Number Conversions](https://ucsb-cs8.github.io/topics/number_conversions/)
 * [Converting between binary and decimal](https://www.learncpp.com/cpp-tutorial/converting-between-binary-and-decimal/).
 
-# More cryptography
+# Objects
 
-Goal: Loop back to beginning of string in case of index overflow.
+Everything in the world is an object. The chair you're sitting in right now is an object. Alternatively, if you hate chairs and sitting down because you're concerned that they result in loads of health risks, then the floor you're standing on right now is an object too. Technically, you yourself would also be an object, but people usually don't refer to other people as objects if they're trying to be respectful, as we should all strive to be.
 
-# Mutable vs. immutable
+So, from that logic, everything in Python is an [object](https://en.wikipedia.org/wiki/Object_(computer_science)) as well. Variables. Values. Functions. Methods. **Everything.**
 
-Everything in Python is an object.
+Take, for example, this bit of code:
 
 ```python
 my_bat = "bat"
 my_cat = "cat"
 ```
 
-When creating a variable, you are creating an object and putting a label on it. A variable that has the same value as another value is simply a different reference to the same object.
+`my_bat`, `"bat"`, `my_cat`, and `"cat"` are all objects. Sure, they're different kinds of objects (`my_bat` and `my_cat` are variables and `"bat"` and `"cat"` are values, as you know), but they're still objects nonetheless. So when you create a variable and give it a value, you're basically creating a value object and assigning a label (another object) to it.
+
+What happens here, then?
 
 ```python
-ur_bat = "bat" # New label, same object.
+my_bat = "bat"
+ur_bat = "bat"
+my_cat = "cat"
 ```
 
-Strings are immutable, while lists are mutable.
+`my_bat` and `ur_bat` both have the same value `"bat"`. Does Python create two different value objects and assign them two different labels? No. Python instead creates just a single value object and has `my_bat` and `ur_bat` both point to that same object. In other words, **a variable that has the same value as another variable is simply a different reference to the same object**.
 
-**`id()`:** Gives the identity of an object using its memory address. Useful for finding variables that reference the same object, since this ID must be unique. (Try `help(id)` on the Python shell.)
+You can verify this sameness yourself. Python has a built-in function named **`id`** that returns the **[memory address](https://en.wikipedia.org/wiki/Memory_address)** of an object, which is an integer that tells you where a piece of data is stored on your computer. **Different value objects must have unique memory addresses**, so if you define the three variables above in IDLE and call `id("bat")` and `id("cat")`, you should get two different numbers.
+
+You can also call `id` using a variable name instead of the value object itself, and it's here where the usefulness of `id` starts coming into play. If you do `id(my_bat)` and `id(ur_bat)`, you should get the same memory address as if you did `id("bat")`, since the two variables both refer to the value `"bat"`. You now have a way of distinguishing between variables that reference the same object and variables that reference different objects.
+
+# Mutable vs. immutable
+
+Strings are immutable, while lists are mutable.
 
 Because strings are immutable, they don't change no matter what you do to them short of replacing the string entirely.
 
